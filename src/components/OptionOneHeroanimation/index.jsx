@@ -1,10 +1,10 @@
-import React from "react";
-import { Button, Text } from "./..";
-import Slider from "react-slick";
+import React, { useEffect, useState } from "react";
+import { Button, Descriptionstyle } from "./..";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./index.css"; // Assuming you have a CSS file for styling
 
-export default function OptionOneHeroanimation({
+export default function OptionOneHeroAnimation({
   interiorsmade = "Interiors Made easy",
   indulgein = "Indulge in Uncompromising Quality and Timeless Elegance for your Home Projects",
   chatWithUs = "Chat with Us",
@@ -16,36 +16,50 @@ export default function OptionOneHeroanimation({
   ],
   ...props
 }) {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000, // Change this value to adjust autoplay speed in milliseconds
-  };
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change this value to adjust the delay between image transitions
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
-    <div {...props}>
-      <Slider {...settings}>
-        {images.map((image, index) => (
-          <div key={index}>
-            <img src={image.src} alt={image.alt} className="w-full" />
-          </div>
-        ))}
-      </Slider>
+    <div {...props} style={{ marginTop: "60px", position: "relative" }}>
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image.src}
+          alt={image.alt}
+          className={`w-full absolute ${
+            index === currentImageIndex ? "fade-in zoom-out" : "hidden"
+          }`}
+        />
+      ))}
       <div className="flex w-full h-full pl-20 pr-14 left-0 bottom-0 right-0 top-0 py-20 m-auto md:p-5 bg-gradient absolute">
         <div className="flex flex-col items-start w-[47%] gap-[49px] my-[92px]">
           <div className="flex flex-col self-stretch gap-6">
-            <Text size="5xl" as="p" className="w-[84%] md:w-full !text-white-A700_01 !font-outfit">
+            <Descriptionstyle
+              size="5xl"
+              as="p"
+              className="w-[84%] md:w-full !text-white-A700_01 !font-outfit"
+            >
               {interiorsmade}
-            </Text>
-            <Text size="md" as="p" className="!text-white-A700_01">
+            </Descriptionstyle>
+            <Descriptionstyle size="md" as="p" className="!text-white-A700_01">
               {indulgein}
-            </Text>
+            </Descriptionstyle>
           </div>
-          <Button color="red_A700" size="sm" shape="square" className="sm:px-5 capitalize font-medium min-w-[149px]">
+          <Button
+            color="red_A700"
+            size="sm"
+            shape="square"
+            className="sm:px-5 capitalize font-medium min-w-[149px]"
+          >
             {chatWithUs}
           </Button>
         </div>
@@ -53,5 +67,9 @@ export default function OptionOneHeroanimation({
     </div>
   );
 }
+
+
+
+
 
 

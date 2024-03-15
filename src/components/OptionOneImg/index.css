@@ -1,0 +1,19 @@
+@keyframes translateYAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(50px); /* Adjust the translation distance as needed */
+    }
+    60% {
+      transform: translateY(50px); /* Maintain the translation for 10% of the cycle */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-translateY {
+    animation: translateYAnimation 3s infinite; /* Adjust duration to include wait time */
+  }
+  

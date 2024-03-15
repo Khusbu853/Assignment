@@ -12,7 +12,7 @@ const sizes = {
   md: "text-2xl font-normal leading-8",
 };
 
-const Text = ({ children, className = "", as, size = "xs", ...restProps }) => {
+const Descriptionstyle = ({ children, className = "", as, size = "xs", ...restProps }) => {
   const Component = as || "p";
 
   return (
@@ -22,4 +22,4 @@ const Text = ({ children, className = "", as, size = "xs", ...restProps }) => {
   );
 };
 
-export { Text };
+export { Descriptionstyle };

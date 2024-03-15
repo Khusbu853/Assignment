@@ -4,7 +4,7 @@ const sizes = {
   xs: "text-xl font-extrabold leading-6",
 };
 
-const Heading = ({ children, className = "", size = "xs", as, ...restProps }) => {
+const TextHeading = ({ children, className = "", size = "xs", as, ...restProps }) => {
   const Component = as || "h6";
 
   return (
@@ -14,4 +14,5 @@ const Heading = ({ children, className = "", size = "xs", as, ...restProps }) =>
   );
 };
 
-export { Heading };
+export { TextHeading };
+

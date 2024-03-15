@@ -1,5 +1,5 @@
 import { Button } from "./Button";
-import { Text } from "./Text";
-import { Heading } from "./Heading";
+import { Descriptionstyle } from "./Descriptionstyle";
+import { TextHeading } from "./TextHeading";
 import { Img } from "./Img";
-export { Button, Text, Heading, Img};
+export { Button, Descriptionstyle, TextHeading, Img};

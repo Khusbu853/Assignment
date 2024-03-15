@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Img, Text } from "./..";
+import { Button, Img, Descriptionstyle } from "./..";
 
 export default function OptionOneImage({ jeganr = "Jegan. R", p7yearsof = "7 Years of Experience", ...props }) {
   return (
@@ -13,13 +13,13 @@ export default function OptionOneImage({ jeganr = "Jegan. R", p7yearsof = "7 Yea
         <div className="flex items-center w-[70%] bottom-[4%] left-[6%] m-auto absolute">
           <div className="p-[18px] bg-white-A700_f2 flex-1">
             <div className="flex flex-col pt-0.5 gap-[3px]">
-              <Text size="lg" as="p" className="!text-gray-800 !font-outfit">
+              <Descriptionstyle size="lg" as="p" className="!text-gray-800 !font-outfit">
                 {jeganr}
-              </Text>
+              </Descriptionstyle>
               <div className="flex pt-[3px]">
-                <Text as="p" className="!text-gray-700_01 !font-outfit !font-normal">
+                <Descriptionstyle as="p" className="!text-gray-700_01 !font-outfit !font-normal">
                   {p7yearsof}
-                </Text>
+                </Descriptionstyle>
               </div>
             </div>
           </div>
